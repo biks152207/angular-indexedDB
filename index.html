@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular indexedDB</title>
+  </head>
+  <body ng-app="myApp">
+    <h5>indexedDB</h5>
+    <div ng-controller="myController as vm">
+        <button type="button" name="button" ng-click="vm.add()">ADD</button>
+    </div>
+
+    <script type="text/javascript" src="client/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./index.js"> </script>
+    <script type="text/javascript">
+        angular.module('myApp', ['angular-indexedDB'])
+        angular.element(function(){
+          angular.bootstrap(document, ['myApp']);
+        });
+
+        angular.module('myApp')
+          .controller('myController', function($scope, IndexedDB){
+            var vm = this;
+            vm.add = add.bind(this);
+
+            vm.start = start.bind(vm);
+            vm.start();
+
+            function start(){
+              console.log('start.....');
+              IndexedDB.init('bikram', 'customer',  'id')
+                .then(function(res){
+
+                })
+                .catch(function(err){
+                  console.log(err);
+                })
+            }
+            function add(){
+              IndexedDB.add('customer', {id: 1, name: 'test1'})
+                .then(function(result){
+                  console.log('result..');
+                  console.log(result);
+                })
+                .catch(function(err){
+                  console.log(err);
+                })
+            }
+          })
+    </script>
+  </body>
+</html>

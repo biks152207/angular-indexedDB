@@ -1,0 +1,25 @@
+{
+  "name": "angular-indexDB",
+  "authors": [
+    "biks152207 <bikrambasnet1@gmail.com>"
+  ],
+  "description": "angular package for indexedDB",
+  "main": "index.js",
+  "keywords": [
+    "indexedDB",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#1.4.8"
+  }
+}
